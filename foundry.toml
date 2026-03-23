@@ -1,0 +1,24 @@
+[profile.default]
+src = "src"
+script = "migration/script"
+out = "out"
+libs = ["lib"]
+solc = "0.8.24"
+optimizer = true
+optimizer_runs = 200
+via_ir = true
+evm_version = "cancun"
+
+remappings = [
+    "@v1/=src/v1/",
+    "@v2/=src/v2/",
+    "@migration/=src/migration/",
+    "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/",
+    "forge-std/=lib/forge-std/src/",
+]
+
+[fuzz]
+runs = 256
+
+[invariant]
+depth = 15
